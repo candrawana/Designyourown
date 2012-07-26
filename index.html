@@ -7,33 +7,35 @@
 		Remove this if you use the .htaccess -->
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-		<title>index</title>
+		<title>Design Your Own</title>
 		<meta name="description" content="" />
 		<meta name="author" content="Rogue" />
 
 		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
 		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-		<script type="text/javascript" src="scripts/jquery.js"></script>
+		<script type="text/javascript" src="scripts/jquery-1.7.2.js"></script>
 		<script type="text/javascript">
  
 			function fillSkin(canvasId, material) {
-    			var canvas=document.getElementById(canvasId);
-    			var cxt=canvas.getContext("2d");
+
+    			var can = document.getElementById(canvasId);
+    			var cxt = can.getContext("2d");
 
 				var imageMask = new Image();
 				imageMask.src = "images/mask/" + canvasId + ".png";
 				imageMask.onload = function () {
 				  	cxt.drawImage(imageMask, 0, 0);
+				  	imageSkin.onload = function() {
+    					cxt.globalCompositeOperation ='source-atop';
+        				var pattern = cxt.createPattern(imageSkin, "repeat");
+        				cxt.fillStyle = pattern;
+        				cxt.fillRect(0,0, 300, 300);
+    				}
 				}
 
     			var imageSkin = new Image();
-    			imageObj.src = "images/material/" + material + ".png";
-    			imageSkin.onload = function() {
-    				cxt.globalCompositeOperation ='souce-in';
-        			var pattern = cxt.createPattern(imageSkin, "repeat");
-        			cxt.fillStyle = pattern;
-        			cxt.fill();
-    			}
+    			imageSkin.src = "images/material/" + material + ".png";
+    			
 
 				
 			} 
@@ -97,48 +99,40 @@
 				<canvas style="position:absolute; left:12px;top:6px;" width="236" height="114"  id="flat5" class="skin1"></canvas>
 			</div>
 			<div id="controler">
-				Toe :	<input type="button" name="button1" id="button1" value="Lace 1">
+				Cap Toe	<input type="button" name="button1" id="button1" value="Lace 1">
               	  		<input type="button" name="button2" id="button2" value="Lace 2">
 						<input type="button" name="button3" id="button3" value="Lace 3">
 						<input type="button" name="button4" id="button4" value="Suede 1">
               	  		<input type="button" name="button5" id="button5" value="Suede 2">
 						<input type="button" name="button6" id="button6" value="Suede 3">
 				<br>
-				Cap toe :<input type="button" name="button7" id="button7" value="Lace 1">
+				Toe		<input type="button" name="button7" id="button7" value="Lace 1">
               	  		<input type="button" name="button8" id="button8" value="Lace 2">
 						<input type="button" name="button9" id="button9" value="Lace 3">
 						<input type="button" name="button10" id="button10" value="Suede 1">
               	  		<input type="button" name="button11" id="button11" value="Suede 2">
 						<input type="button" name="button12" id="button12" value="Suede 3">
 				<br>
-				Edge :	<input type="button" name="button13" id="button13" value="Lace 1">
+				Edge	<input type="button" name="button13" id="button13" value="Lace 1">
               	  		<input type="button" name="button14" id="button14" value="Lace 2">
     	  				<input type="button" name="button15" id="button15" value="Lace 3">
     	  				<input type="button" name="button16" id="button16" value="Suede 1">
               	  		<input type="button" name="button17" id="button17" value="Suede 2">
 						<input type="button" name="button18" id="button18" value="Suede 3">
 				<br>
-				Edge : 	<input type="button" name="button13" id="button13" value="Lace 1">
-              	  		<input type="button" name="button14" id="button14" value="Lace 2">
-    	  				<input type="button" name="button15" id="button15" value="Lace 3">
-    	  				<input type="button" name="button16" id="button16" value="Suede 1">
-              	  		<input type="button" name="button17" id="button17" value="Suede 2">
-						<input type="button" name="button18" id="button18" value="Suede 3">
-				<br>
-				Footing : <input type="button" name="button19" id="button19" value="Lace 1">
+				Footing <input type="button" name="button19" id="button19" value="Lace 1">
               	  		<input type="button" name="button20" id="button20" value="Lace 2">
     	  				<input type="button" name="button21" id="button21" value="Lace 3">
     	  				<input type="button" name="button22" id="button22" value="Suede 1">
               	  		<input type="button" name="button23" id="button23" value="Suede 2">
 						<input type="button" name="button24" id="button24" value="Suede 3">
 				<br>
-				Lining :<input type="button" name="button25" id="button25" value="Lace 1">
+				Lining <input type="button" name="button25" id="button25" value="Lace 1">
               	  		<input type="button" name="button26" id="button26" value="Lace 2">
     	  				<input type="button" name="button27" id="button27" value="Lace 3">
     	  				<input type="button" name="button28" id="button28" value="Suede 1">
               	  		<input type="button" name="button29" id="button29" value="Suede 2">
 						<input type="button" name="button30" id="button30" value="Suede 3">
-			</div>
 			</div>
 		</div>
 	</body>
